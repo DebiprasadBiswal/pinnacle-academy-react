@@ -23,6 +23,7 @@ Run `npm run build`. The production-ready site will be generated in `dist/`.
 - Review all claims and admission details before publishing.
 
 The enquiry form currently opens the visitor's default email application with their entered details; it does not store data or automatically send an email.
+<<<<<<< HEAD
 
 ## Student popup and Cloudflare hosting
 
@@ -51,3 +52,5 @@ ORDER BY created_at DESC;
 There is no public API for reading student records. No database credentials are shipped to the browser. The submission API validates input, uses SQL parameters, restricts request size and rejects cross-origin browser requests.
 
 For a full local preview (including database saving), run `npm run db:migrate:local` and `npm run dev:cloudflare`. `npm run dev` previews the frontend only. Run `npm test` for the submission and database tests.
+=======
+>>>>>>> 79dbb793504c0e31df4e8c4e9b70d0d5dacf2081
