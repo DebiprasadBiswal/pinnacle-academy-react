@@ -3,7 +3,6 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-<<<<<<< HEAD
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -13,7 +12,8 @@
     "db:create": "wrangler d1 create pinnacle-students",
     "db:migrate:local": "wrangler d1 migrations apply DB --local",
     "db:migrate:remote": "wrangler d1 migrations apply DB --remote",
-    "deploy": "npm run build && wrangler deploy"
+    "deploy": "npm run build && wrangler deploy",
+    "deploy:original": "npm run build && wrangler deploy --name pinnacle-achievers-academy"
   },
   "dependencies": {
     "@vitejs/plugin-react": "latest",
@@ -25,9 +25,4 @@
   "devDependencies": {
     "wrangler": "^4.156.0"
   }
-=======
-  "scripts": { "dev": "vite", "build": "vite build", "preview": "vite preview" },
-  "dependencies": { "@vitejs/plugin-react": "latest", "vite": "latest", "react": "latest", "react-dom": "latest", "lucide-react": "^0.468.0" },
-  "devDependencies": {}
->>>>>>> 79dbb793504c0e31df4e8c4e9b70d0d5dacf2081
 }

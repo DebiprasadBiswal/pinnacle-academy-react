@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "pinnacle-achievers-academy",
+  "name": "pinnacle-academy-react",
   "main": "worker/index.js",
   "compatibility_date": "2026-10-30",
   "assets": {

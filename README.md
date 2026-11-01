@@ -23,7 +23,6 @@ Run `npm run build`. The production-ready site will be generated in `dist/`.
 - Review all claims and admission details before publishing.
 
 The enquiry form currently opens the visitor's default email application with their entered details; it does not store data or automatically send an email.
-<<<<<<< HEAD
 
 ## Student popup and Cloudflare hosting
 
@@ -31,7 +30,9 @@ The student popup opens five seconds after each page load. It collects the stude
 
 Deploy this project as a **Cloudflare Worker with Static Assets and D1** using the included `wrangler.jsonc`. Uploading only `dist/` to static hosting will not deploy the submission API.
 
-The current deployment is https://pinnacle-achievers-academy.debiprasad1983.workers.dev. The D1 binding and hosted table are already configured. For subsequent updates, run `npm test` and `npm run deploy`.
+The Git-connected Cloudflare Worker is `pinnacle-academy-react`; the name in `wrangler.jsonc` must match it. In Cloudflare's build settings, use the repository root, build command `npm run build`, and deploy command `npx wrangler deploy`. The D1 binding and hosted table are already configured.
+
+For subsequent updates, run `npm test` and `npm run deploy`. The original deployment at https://pinnacle-achievers-academy.debiprasad1983.workers.dev remains separate; use `npm run deploy:original` to update that address explicitly.
 
 For a fresh Cloudflare account:
 
@@ -52,5 +53,3 @@ ORDER BY created_at DESC;
 There is no public API for reading student records. No database credentials are shipped to the browser. The submission API validates input, uses SQL parameters, restricts request size and rejects cross-origin browser requests.
 
 For a full local preview (including database saving), run `npm run db:migrate:local` and `npm run dev:cloudflare`. `npm run dev` previews the frontend only. Run `npm test` for the submission and database tests.
-=======
->>>>>>> 79dbb793504c0e31df4e8c4e9b70d0d5dacf2081

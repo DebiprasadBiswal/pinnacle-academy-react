@@ -1,31 +1,12 @@
-<<<<<<< HEAD
 node_modules/
 dist/
+build/
 .wrangler/
 .dev.vars
 .env
 .env.*
-=======
-# Dependencies
-node_modules/
-
-# Build output
-dist/
-build/
-
-# Environment variables
-.env
-.env.local
-.env.production
-
-# Logs
 *.log
-
-# Editor files
 .vscode/
 .idea/
-
-# Operating system files
 .DS_Store
 Thumbs.db
->>>>>>> 79dbb793504c0e31df4e8c4e9b70d0d5dacf2081
