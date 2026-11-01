@@ -1,0 +1,20 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "pinnacle-achievers-academy",
+  "main": "worker/index.js",
+  "compatibility_date": "2026-10-30",
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "not_found_handling": "single-page-application",
+    "run_worker_first": ["/api/*"]
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "pinnacle-students",
+      "database_id": "d4234828-d751-4197-b41c-1327a52c903e",
+      "migrations_dir": "migrations"
+    }
+  ]
+}
