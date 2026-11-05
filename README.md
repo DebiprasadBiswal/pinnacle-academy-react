@@ -14,6 +14,23 @@ A responsive React + Vite admissions website built around the supplied academy l
 
 Run `npm run build`. The production-ready site will be generated in `dist/`.
 
+## Local search visibility (Soro and Balasore)
+
+The homepage targets +2 Science coaching in Soro, Balasore, with visible programme and location information, local FAQs, crawlable navigation, social sharing metadata and EducationalOrganization/LocalBusiness structured data. `npm run build` pre-renders the actual React page into HTML, then the browser hydrates it for interactions. It also generates `dist/robots.txt` and `dist/sitemap.xml`.
+
+The canonical public URL is `https://pinnacleachieversacademy.com/`, configured in `src/seo.js`. Ensure the domain is connected to this Worker and HTTPS works before publishing or submitting the sitemap. Redirect HTTP and any www or alternate hostnames to that preferred URL in Cloudflare. Do not replace the public domain with a preview or workers.dev address.
+
+Validate with `npm run check:seo` and `npm test`. Deploy using the existing Cloudflare workflow described below. After deployment, check the live homepage, `/robots.txt` and `/sitemap.xml`; inspect the page in Google's URL Inspection tool and test the structured data with Google's Rich Results Test. Search engines decide indexing and rankings; structured data does not guarantee a special search appearance.
+
+Complete these steps in the academy owner's Google accounts:
+
+1. Claim and verify the academy's Google Business Profile. Use the actual academy name, address and phone shown on the website. Select the most accurate available business category and add confirmed services, opening hours and authentic photos. Use the existing physical Soro location, rather than creating fictitious branches in nearby towns.
+2. Add the website's domain property to Google Search Console and complete DNS verification. Submit `https://pinnacleachieversacademy.com/sitemap.xml` and request indexing for the homepage. Verification requires access to the owner's Google account and DNS; no verification token has been invented or added to this repository.
+3. Invite students and parents to leave honest reviews and respond to them. Keep details consistent across legitimate local listings and academy social profiles. Add verifiable faculty, programme and results information as it becomes available.
+4. Track impressions, queries, clicks and enquiries in Search Console and Business Profile. Use the results to improve useful programme information over time.
+
+A 50–60 km radius cannot be enforced with SEO or a metadata setting. Google local results depend on relevance, distance and prominence. The page welcomes enquiries from surrounding areas without promising rankings or inventing facilities. Avoid keyword stuffing and unsupported claims that the academy is ranked "best". See [Google's local ranking guidance](https://support.google.com/business/answer/7091).
+
 ## Before publishing
 
 - Add the academy's verified phone number, WhatsApp number and email address.

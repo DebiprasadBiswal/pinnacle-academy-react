@@ -1,0 +1,25 @@
+import assert from 'node:assert/strict';
+import { readFile } from 'node:fs/promises';
+import { siteUrl } from '../src/seo.js';
+
+const html = await readFile('dist/index.html', 'utf8');
+const body = html.slice(html.indexOf('<body>'));
+assert.match(body, /<div id="root"><(?:link|div)/, 'Homepage content must be pre-rendered.');
+assert.equal((body.match(/<h1[ >]/g) || []).length, 1, 'Homepage needs a single primary heading.');
+assert.match(body, /\+2 Science coaching in Soro, Balasore/);
+assert.match(body, /Lingapada Road/);
+assert.match(body, /href="#programmes"/);
+assert.match(body, /Where can I find \+2 Science coaching in Soro\?/);
+assert.match(html, new RegExp(`<link rel="canonical" href="${siteUrl.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}"`));
+const schema = JSON.parse(html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
+const academy = schema['@graph'].find(entity => entity['@type'].includes('LocalBusiness'));
+assert.equal(academy.url, siteUrl);
+assert.equal(academy.address.addressLocality, 'Soro');
+assert.equal(academy.telephone, '+918658816657');
+assert.ok(!academy.aggregateRating, 'Do not publish unverified review ratings.');
+const robots = await readFile('dist/robots.txt', 'utf8');
+assert.ok(robots.includes(`Sitemap: ${siteUrl}sitemap.xml`));
+assert.ok(!robots.includes('Disallow: /\n'), 'The homepage must remain crawlable.');
+const sitemap = await readFile('dist/sitemap.xml', 'utf8');
+assert.ok(sitemap.includes(`<loc>${siteUrl}</loc>`));
+console.log('SEO checks passed: rendered content, local details, canonical, schema, robots and sitemap.');

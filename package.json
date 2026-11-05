@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "node scripts/build.mjs",
+    "check:seo": "npm run build && node scripts/check-seo.mjs",
     "preview": "vite preview",
     "test": "node --test tests/*.test.js",
     "dev:cloudflare": "npm run build && wrangler dev",
